@@ -1,4 +1,4 @@
-* Week 6 Assessment
+# S-Team - Week 6 Assessment
 
 Index Wireframe:
 ![alt text][index]
