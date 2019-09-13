@@ -1,9 +1,11 @@
+const API_PORT = 8080;
+
 // Connection request to paste existing data into table
 function makeRequest(http, requestType="GET", data){
     return new Promise((resolve,reject)=>{
         const xhr = new XMLHttpRequest();
         xhr.onload = () => {
-            if (xhr.status == 200) {
+            if (xhr.status === 200) {
                 resolve(xhr.response);} 
             else {reject("Request Failed");}
         };
@@ -19,7 +21,7 @@ function makeRequest(http, requestType="GET", data){
     });
 }
 
-makeRequest(`http://${window.location.hostname}`)
+makeRequest(`http://${window.location.hostname}/${API_PORT}/`)
     .then((data)=>{
         console.log("It Worked",data);
         let parsedData = JSON.parse(data);
