@@ -12,7 +12,7 @@ import javax.validation.constraints.NotBlank;
 public class SteamGame {
     @Id @GeneratedValue (strategy = GenerationType.IDENTITY) private int id;
     @NotBlank private String name;
-    @NotBlank private int cost;
+    private int cost;
 
     public SteamGame() {}
     public SteamGame(String name, int cost) {}
