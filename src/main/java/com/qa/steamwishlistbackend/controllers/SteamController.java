@@ -1,18 +1,29 @@
 package com.qa.steamwishlistbackend.controllers;
 
+import com.google.gson.JsonObject;
 import com.qa.steamwishlistbackend.entities.SteamGame;
 import com.qa.steamwishlistbackend.repositories.SteamGameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 @CrossOrigin
 @RestController
 public class SteamController {
     SteamGameRepository steamGameRepository;
 
+
     @GetMapping("/read/all")
     public String readAll() {
-        return "";
+        JsonObject json = new JsonObject();
+        List<SteamGame> games = new ArrayList<>();
+        steamGameRepository.findAll().forEach(games::add);
+        AtomicInteger i = new AtomicInteger();
+        games.forEach(game -> json.add("" + i.getAndIncrement(), game.toJson()));
+        return json.toString();
     }
 
     @RequestMapping(value = "delete/{name}", method = RequestMethod.DELETE)
