@@ -14,7 +14,7 @@ function handleSubmit(form) {
         }
     }
     console.log(formData);
-    makeRequest(`http://${window.location.hostname}:${API_PORT}/games`, "POST", formData);
+    makeRequest("POST", `http://${window.location.hostname}:${API_PORT}/create/game`, formData);
     return false;
 }
 
