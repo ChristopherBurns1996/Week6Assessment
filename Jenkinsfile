@@ -8,7 +8,7 @@ pipeline{
                 }
 		stage('---pushhtml---'){
                         steps{
-                                sh "sudo cp -r /var/lib/jenkins/workspace/Week6Assessment/* /var/www/html"
+                                sh "sudo cp -r /var/lib/jenkins/workspace/s-Team/* /var/www/html"
                         }
                 }
 	}
