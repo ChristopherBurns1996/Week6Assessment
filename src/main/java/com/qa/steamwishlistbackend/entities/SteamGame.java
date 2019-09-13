@@ -1,7 +1,5 @@
 package com.qa.steamwishlistbackend.entities;
 
-import com.google.gson.JsonObject;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -33,13 +31,5 @@ public class SteamGame {
     }
     public void setCost(int cost) {
         this.cost = cost;
-    }
-
-    public JsonObject toJson() {
-        JsonObject json = new JsonObject();
-        json.addProperty("name", name);
-        json.addProperty("cost", cost);
-
-        return json;
     }
 }
