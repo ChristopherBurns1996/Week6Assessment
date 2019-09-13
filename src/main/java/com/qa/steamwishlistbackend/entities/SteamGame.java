@@ -13,7 +13,8 @@ public class SteamGame {
     private int cost;
 
     public SteamGame() {}
-    public SteamGame(String name, int cost) {}
+    public SteamGame(String name, int cost) {
+    }
 
     public int getId() {
         return id;

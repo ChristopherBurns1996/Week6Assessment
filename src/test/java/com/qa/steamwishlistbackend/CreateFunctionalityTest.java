@@ -11,7 +11,11 @@ import org.mockito.Mock;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.when;
 
 @RunWith(SpringRunner.class)
@@ -32,6 +36,18 @@ public class CreateFunctionalityTest {
         when(steamGameRepository.save(steamGame)).thenReturn(steamGame);
 
         assertEquals(steamController.addGame(steamGame).getName(), "Halo 3");
+    }
+
+    @Test
+    public void readAllTest(){
+        List<SteamGame> gameList = new ArrayList<>();
+        SteamGame game = new SteamGame();
+        game.setName("cod");
+        game.setCost(50);
+        gameList.add(game);
+        when(steamGameRepository.findAll()).thenReturn(gameList);
+
+        assertEquals(steamController.readAll().get(0).getName(), "cod");
     }
 
 }
