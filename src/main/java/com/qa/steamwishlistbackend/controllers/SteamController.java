@@ -24,7 +24,9 @@ public class SteamController {
 
     @PostMapping("/update/cost")
     public String readAll(@RequestBody SteamGame game) {
-        steamGameRepository.save(steamGameRepository.findByName(game.getName()).get());
+        SteamGame savedGame = steamGameRepository.findByName(game.getName()).get();
+        savedGame.setCost(game.getCost());
+        steamGameRepository.save(savedGame);
         return "done";
     }
 
