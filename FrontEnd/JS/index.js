@@ -1,7 +1,7 @@
-const API_PORT = 8080;
+const API_PORT = 9000;
 
 // Connection request to paste existing data into table
-function makeRequest(http, requestType="GET", data){
+function makeRequest(requestType, http, data){
     return new Promise((resolve,reject)=>{
         const xhr = new XMLHttpRequest();
         xhr.onload = () => {
@@ -21,7 +21,7 @@ function makeRequest(http, requestType="GET", data){
     });
 }
 
-makeRequest(`http://${window.location.hostname}/${API_PORT}/`)
+makeRequest("GET" `http://${window.location.hostname}/${API_PORT}/`)
     .then((data)=>{
         console.log("It Worked",data);
         let parsedData = JSON.parse(data);
