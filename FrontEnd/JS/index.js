@@ -3,7 +3,7 @@ function makeRequest(http, requestType="GET", data){
     return new Promise((resolve,reject)=>{
         const xhr = new XMLHttpRequest();
         xhr.onload = () => {
-            if (xhr.status ==200) {
+            if (xhr.status == 200) {
                 resolve(xhr.response);} 
             else {reject("Request Failed");}
         };
@@ -19,7 +19,7 @@ function makeRequest(http, requestType="GET", data){
     });
 }
 
-makeRequest("http://localhost:9000/dice")
+makeRequest("http://localhost:9000/")
     .then((data)=>{
         console.log("It Worked",data);
         let parsedData = JSON.parse(data);
@@ -34,7 +34,7 @@ makeRequest("http://localhost:9000/dice")
                     tabRow.appendChild(tabData);
                 }
             }
-            document.getElementById("dice_table").appendChild(tabRow);
+            document.getElementById("games_table").appendChild(tabRow);
         }
     })
     .catch((error)=>{
