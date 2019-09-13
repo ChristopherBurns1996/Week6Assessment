@@ -35,4 +35,9 @@ public class SteamController {
     void getSteamGameRepository(SteamGameRepository steamGameRepository) {
         this.steamGameRepository = steamGameRepository;
     }
+
+    @RequestMapping(value = "/create/game", method = RequestMethod.POST)
+    public SteamGame addGame(@RequestBody SteamGame game){
+        return steamGameRepository.save(game);
+    }
 }
