@@ -1,10 +1,9 @@
 package com.qa.steamwishlistbackend.controllers;
 
+import com.qa.steamwishlistbackend.entities.SteamGame;
 import com.qa.steamwishlistbackend.repositories.SteamGameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin
 @RestController
@@ -16,6 +15,13 @@ public class SteamController {
         return "";
     }
 
+
+
+
+    @PostMapping("/update/cost")
+    public String readAll(@RequestBody SteamGame game) {
+        return "done";
+    }
 
 
     @Autowired
