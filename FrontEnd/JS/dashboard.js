@@ -19,8 +19,8 @@ function handleSubmit(form) {
 }
 
 // Doesn't allow anything but numbers in the number field (normally it lets through e - + ! * inputs)
-function numsOnly(event) {
-    return event.keyCode === 8 || event.keyCode === 46 ? true : !isNaN(Number(event.key))
+function numsOnly(event){
+    return event.keyCode === 8 || event.keyCode === 190 || event.keyCode === 46 ? true : !isNaN(Number(event.key))
 }
 
 // Doesn't allow to go into negative numbers via arrows (minimum 0 selected in html already), 95-106 numpad, 47-58 number row, 8 is backspace
