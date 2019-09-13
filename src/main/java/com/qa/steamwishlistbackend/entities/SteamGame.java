@@ -12,15 +12,11 @@ public class SteamGame {
     @NotBlank private String name;
     @NotBlank private int cost;
 
-    SteamGame() {}
-    SteamGame(String name, int cost) {}
+    public SteamGame() {}
+    public SteamGame(String name, int cost) {}
 
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -38,10 +34,4 @@ public class SteamGame {
     public void setCost(int cost) {
         this.cost = cost;
     }
-
-    void setCost() {
-        this.cost = cost;
-    }
-
-
 }
