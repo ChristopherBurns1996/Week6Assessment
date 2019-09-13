@@ -30,7 +30,7 @@ public class SteamController {
     public String deleteGame(@PathVariable String name) {
         SteamGame gameToDelete = steamGameRepository.findByName(name).get();
         steamGameRepository.delete(gameToDelete);
-        return "Deleted: " + gameToDelete;
+        return "Deleted: " + gameToDelete.toJson();
     }
 
     @PostMapping("/update/cost")
