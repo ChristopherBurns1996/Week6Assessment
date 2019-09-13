@@ -14,7 +14,7 @@ function handleSubmit(form) {
         }
     }
     console.log(formData);
-    makeRequest("http://localhost:9000/dice", "POST", formData);
+    makeRequest("http://localhost:9000/games", "POST", formData);
     return false;
 }
 
@@ -36,7 +36,7 @@ function handleClick() {
 }
 
 // Connection request to paste existing data into table
-function makeRequest(http, requestType = "GET", data) {
+function makeRequest(requestType, http, data) {
     return new Promise((resolve, reject) => {
         const xhr = new XMLHttpRequest();
         xhr.onload = () => {
@@ -61,7 +61,7 @@ function makeRequest(http, requestType = "GET", data) {
 
 function requestGamesList() {
     console.log("getting games")
-    makeRequest(`http://${window.location.hostname}:${API_PORT}/read/all`)
+    makeRequest("GET", `http://${window.location.hostname}:${API_PORT}/read/all`)
         .then((data) => {
             console.log(data);
             let parsedData = JSON.parse(data);
@@ -76,7 +76,7 @@ function requestGamesList() {
                         tabRow.appendChild(tabData);
                     }
                 }
-                document.getElementById("dice_table").appendChild(tabRow);
+                document.getElementById("games_table").appendChild(tabRow);
             }
         })
         .catch((error) => {
