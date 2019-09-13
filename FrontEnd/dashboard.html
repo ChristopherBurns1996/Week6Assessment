@@ -4,11 +4,11 @@
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/dashboard.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>S-Team</title>
+    <title>Dashboard - S-Team</title>
 </head>
 
 <body>
@@ -18,17 +18,50 @@
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Overview<span class="sr-only">(current)</span></a>
-                </li>
                 <li class="nav-item">
-                    <a onclick="handleClick()" class="nav-link" href="#">Dashboard</a>
+                    <a onclick="handleClick()" class="nav-link" href="#">Overview</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Dashboard<span class="sr-only">(current)</span></a>
                 </li>
         </div>
     </nav>
+    <div class="banner"></div>
     <div class="container blocks mt-4 col-md-12">
+        <div class="card">
+            <div class="card-header bg-dark text-white">
+                Manage Games
+            </div>
+            <div class="card-body">
+                <form onsubmit="return handleSubmit(this)">
+                    <table>
+                        <tr>
+                            <td><input class="form-control" id="cost" type="number" name="cost"
+                                    onkeydown="return numsOnly(event)" placeholder="Game Cost" min="0"></td>
+                            </td>
+                            <td>
+                                <input class="form-control" id="name" type="text" placeholder="Game Name">
+                            </td>
+                            <td>
+                                <input type="submit" class="btn btn-danger" value="Submit"></input>
+                            </td>
+                            <td style="text-align:right; width:100%; padding:0;"></td>
+                            <td>
+                                <input class="form-control" id="remove" type="text" placeholder="Remove Game">
+                            </td>
+                            <td>
+                                <input type="submit" class="btn btn-danger" value="Submit"></input>
+                            </td>
+                        </tr>
+                    </table>
+            </div>
+        </div>
+        <div class="mt-2 col-md-12">
+
+        </div>
         <div>
             <table class="table table-striped">
                 <thead class="thead-dark">
@@ -41,6 +74,7 @@
 
                 </tbody>
             </table>
+            </form>
         </div>
     </div>
 </body>
@@ -55,7 +89,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-    <script src="js/index.js"></script>
+    <script src="js/dashboard.js"></script>
 </footer>
 
 </html>
